@@ -1,0 +1,94 @@
+<h1>{{title}}</h1>
+
+{{#if success_msg}}
+{{success_msg}}
+{{/if}}
+{{#if error_msg}}
+{{error_msg}}
+{{/if}}
+
+<form action = '../users/register' method ='post'>
+<table>
+    <tr>
+        <td><label for = 'username'> Nazwa użytkownika</label></td>
+        <td><input type = 'text' id = 'username' name = 'username' placeholder="nazwa użytkownika"><br></td>
+    </tr>
+
+    <tr>
+        <td><label for = 'password'> Hasło</label></td>
+        <td><input type = 'password' id = 'password' name = 'password' placeholder="hasło"></td>
+    </tr>
+
+</table>
+
+
+<br>
+<h4> Wybierz Rasę</h4>
+<table>
+    <tr>
+    <th></th>
+    <th></th> 
+    <th>Siła</th>
+    <th>Zręczność</th>
+    <th>Wytrzymałość</th>
+  </tr>
+{{# each rasy}}
+<tr>
+    <td>
+<input type="radio" id="{{this.nazwa}}" name="rasa" value="{{this.nazwa}}"
+         checked>
+  <label for="{{this.nazwa}}">{{this.nazwa}}</label>
+    </td>
+    <td>
+<img src="{{this.obrazek}}" alt="{{this.nazwa}}" width="100px" height="100px">
+    </td>
+    <td>
+        <p> {{this.sila_mod}}</p>
+    </td>
+    <td>
+        <p> {{this.zrecznosc_mod}}</p>
+    </td>
+    <td>
+        <p> {{this.wytrzymalosc_mod}}</p>
+    </td>
+
+</tr>
+</div>
+{{/each}}
+</table>
+
+<h4> Wybierz Klasę</h4>
+<table>
+    <tr>
+    <th></th>
+    <th></th> 
+    <th>Atak</th>
+    <th>Obrona</th>
+  </tr>
+{{# each klasy}}
+<tr>
+    <td>
+<input type="radio" id="{{this.nazwa}}" name="klasa" value="{{this.nazwa}}"
+         checked>
+  <label for="{{this.nazwa}}">{{this.nazwa}}</label>
+</td>
+    <td>
+    <img src="{{this.obrazek}}" alt="{{this.nazwa}}" width="100px" height="100px">
+    </td>
+
+    <td>
+        <p> {{this.atak_mod}}</p>
+    </td>
+
+    <td>
+        <p> {{this.obrona_mod}}</p>
+    </td>
+
+
+
+</tr>
+{{/each}}
+</table>
+<input type = 'submit' value = 'Zarejestruj się'>
+</form>
+<p >Posiadasz już konto? <a href="/users/login">Zaloguj się</a></p>

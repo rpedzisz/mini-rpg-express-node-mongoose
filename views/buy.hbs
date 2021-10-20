@@ -1,0 +1,131 @@
+<h1> Sklep </h1>
+
+{{#if success_msg}}
+{{success_msg}}
+{{/if}}
+{{#if error_msg}}
+{{error_msg}}
+{{/if}}
+
+<table>
+    <tr>
+        <td>
+<form action = '/city/buy' method ='post'>
+    <input type="hidden" name="typ" value="Wszystko">
+    
+
+    <input type = 'submit' value = 'Wszystko'>
+</form>
+</td>
+<td>
+<form action = '/city/buy/bron' method ='post'>
+    <input type="hidden" name="typ" value="Broń">
+    <input type = 'submit' value = 'Broń'>
+</form>
+</td>
+<td>
+<form action = '/city/buy/tarcza' method ='post'>
+    <input type="hidden" name="typ" value="Tarcza">
+    
+    <input type = 'submit' value = 'Tarcze'>
+</form>
+</td>
+<td>
+<form action = '/city/buy/helm' method ='post'>
+    <input type="hidden" name="typ" value="Hełm">
+    <input type = 'submit' value = 'Hełmy'>
+</form>
+</td>
+<td>
+<form action = '/city/buy/zbroja' method ='post'>
+    <input type="hidden" name="typ" value="Zbroja">
+    <input type = 'submit' value = 'Zbroje'>
+</form>
+</td>
+
+<td>
+<form action = '/city/buy/rekawice' method ='post'>
+    <input type="hidden" name="typ" value="Rękawice">
+    <input type = 'submit' value = 'Rękawice'>
+</form>
+</td>
+
+
+<td>
+<form action = '/city/buy/nogawice' method ='post'>
+    <input type="hidden" name="typ" value="Nogawice">
+    <input type = 'submit' value = 'Nogawice'>
+</form>
+</td>
+<td>
+<form action = '/city/buy/buty' method ='post'>
+    <input type="hidden" name="typ" value="Buty">
+    <input type = 'submit' value = 'Buty'>
+</form>
+</td>
+<td>
+<form action = '/city/buy/amulet' method ='post'>
+    <input type="hidden" name="typ" value="Amulet">
+
+    <input type = 'submit' value = 'Amulety'>
+</form>
+</td>
+<td>
+<form action = '/city/buy/pierscien' method ='post'>
+    <input type="hidden" name="typ" value="Pierścień">
+    <input type = 'submit' value = 'Pierścienie'>
+</form>
+</td>
+</tr>
+</table>
+
+    <table>
+{{# each przedmioty}}
+<tr>
+    <th>Nazwa</th>
+    <th>Obrazek</th>
+    <th>Typ</th>
+    <th>Atak</th>
+    <th>Obrona</th>
+    <th>Obrażenia</th>
+    <th>Pancerz</th>
+    <th>Siła</th>
+    <th>Zręczność</th>
+    <th>Wytrzymałość</th>
+    <th>Cena</th>
+    
+</tr>
+
+<tr>
+    <td>{{this.itembase.nazwa}}</td>  
+    <td><img src="{{this.itembase.obrazek}}" title="{{this.itembase.nazwa}}" width="100px" height="100px"></td>
+    <td>{{this.itembase.typ}}</td> 
+     <td>{{this.itembase.atak_min}} - {{this.itembase.atak_max}} </td>
+     <td>{{this.itembase.obrona_min}} - {{this.itembase.obrona_max}}</td>
+     
+        <td>Min:{{this.itembase.obrazenia_min1}} - {{this.itembase.obrazenia_min2}}<br>
+        Max:{{this.itembase.obrazenia_max1}} - {{this.itembase.obrazenia_max2}}</td>
+    
+    
+    
+
+     <td>{{this.itembase.pancerz_min}} - {{this.itembase.pancerz_max}}</td>
+     <td>{{this.itembase.sila_add_min}} - {{this.itembase.sila_add_max}}</td>
+     <td>{{this.itembase.zrecznosc_add_min}} - {{this.itembase.zrecznosc_add_max}}</td>
+     <td>{{this.itembase.wytrzymalosc_add_min}} - {{this.itembase.wytrzymalosc_add_max}}</td>
+        <td>{{this.cena}}</td>
+    <td>
+    <form action = '/city/buyitem' method ='post'>
+    <input type="hidden" name="do_kupienia" value="{{this.itembase._id}}">
+    <input type="hidden" name="rzadkosc" value="{{this.rzadkosc._id}}">
+    <input type="hidden" name="cena" value="{{this.cena}}">
+    <input type = 'submit' value = 'Kup'>
+    </form>
+
+</td>
+</tr>
+
+
+
+{{/each}}
+</table>

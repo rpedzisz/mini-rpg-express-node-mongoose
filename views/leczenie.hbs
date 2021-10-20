@@ -1,0 +1,14 @@
+
+{{#if success_msg}}
+{{success_msg}}
+{{/if}}
+{{#if error_msg}}
+{{error_msg}}
+{{/if}}
+<br>
+{{leczenie}}
+
+<form action = '../character/leczenie' method ='post'>
+    <input type="hidden" name="leczenie" value="1">
+    <input type = 'submit' value = 'Ulecz się'>
+    </form>

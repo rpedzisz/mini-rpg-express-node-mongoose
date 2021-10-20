@@ -1,0 +1,105 @@
+<h1> Statystyki postaci </h1>
+
+
+
+<img src="{{user.rasa.obrazek}}" alt="{{user.rasa.nazwa}}" title="{{user.rasa.nazwa}}" width="100px" height="100px">
+<img src="{{user.klasa.obrazek}}" alt="{{user.klasa.nazwa}}" title="{{user.klasa.nazwa}}" width="100px" height="100px">
+
+<table>
+    <tr>
+        <th></th>
+        <th>Siła</th>
+        <th>Zręczność</th>
+        <th>Wytrzymałość</th>
+        <th>Pancerz</th>
+        <th>Atak</th>
+        <th>Obrona</th>
+        <th>Obrażenia</th>
+        <th>Życie</th>
+    </tr>
+<tr>
+<td>Bazowe</td>
+<td>{{user.sila_base}}</td>
+<td>{{user.zrecznosc_base}}</td>
+<td>{{user.wytrzymalosc_base}}</td>
+<td>{{user.pancerz_base}}</td>
+<td>{{user.atak_base}}</td>
+<td>{{user.obrona_base}}</td>
+<td>{{user.obrazenia_base_min}} - {{user.obrazenia_base_max}}</td>
+<td>{{user.zycie_base}}</td>
+</tr>
+
+<tr>
+<td>Rasa</td>
+<td>x{{user.rasa.sila_mod}}</td>
+<td>x{{user.rasa.zrecznosc_mod}}</td>
+<td>x{{user.rasa.wytrzymalosc_mod}}</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>Klasa</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>x{{user.klasa.atak_mod}}</td>
+<td>x{{user.klasa.obrona_mod}}</td>
+<td></td>
+<td></td>
+</tr>
+
+
+
+<tr>
+<td>Zmodyfikowane</td>
+<td>{{user.sila_m}}</td>
+<td>{{user.zrecznosc_m}}</td>
+<td>{{user.wytrzymalosc_m}}</td>
+<td>{{user.pancerz_m}}</td>
+<td>{{user.atak_m}}</td>
+<td>{{user.obrona_m}}</td>
+<td>{{user.obrazenia_min_m}} - {{user.obrazenia_max_m}}</td>
+<td>{{user.zycie_m}}</td>
+</tr>
+<tr>
+<td>Rozdaj punkty:</td>
+<form action = '/character/stats/rozdaj_pkt' method ='post'>
+<td><input type = 'number' id = 'sila' name = 'sila' placeholder="0"></td>
+<td><input type = 'number' id = 'zrecznosc' name = 'zrecznosc' placeholder="0"></td>
+<td><input type = 'number' id = 'wytrzymalosc' name = 'wytrzymalosc' placeholder="0"></td>
+</tr>
+<tr>
+<td>Punkty:</td>
+<td>
+    <b>{{user.punkty_statystyk}}</b>
+</td>
+<tr>
+<td><input type = 'submit' value = 'Zapisz'></td>
+</tr>
+
+
+
+</form>
+
+</tr>
+
+
+
+
+
+
+
+
+
+</table>
+{{#if success_msg}}
+{{success_msg}}
+{{/if}}
+{{#if error_msg}}
+{{error_msg}}
+{{/if}}

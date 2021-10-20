@@ -1,0 +1,146 @@
+---
+swagger: "2.0"
+info:
+  description: ""
+  version: "1.0.0"
+  title: "Costam"
+  termsOfService: ""
+host: "localhost"
+basePath: "/v2"
+paths:
+  /uzytkownik:
+    get:
+      summary: "Zwraca listę użytkowników."
+      description: "Opis."
+      operationId: "uzytkownikGET"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        "200":
+          description: "Ok"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Uzytkownik"
+      x-swagger-router-controller: "Default"
+definitions:
+  Uzytkownik:
+    required:
+    - "Email"
+    - "Haslo"
+    - "Id"
+    - "Imie"
+    - "Login"
+    - "Nazwisko"
+    properties:
+      Id:
+        type: "string"
+      Imie:
+        type: "string"
+      Nazwisko:
+        type: "string"
+      Login:
+        type: "string"
+      Haslo:
+        type: "string"
+      Email:
+        type: "string"
+    example:
+      Imie: "Imie"
+      Email: "Email"
+      Haslo: "Haslo"
+      Id: "Id"
+      Nazwisko: "Nazwisko"
+      Login: "Login"
+  Sesja:
+    required:
+    - "Id"
+    - "Token"
+    - "Waznosc"
+    properties:
+      Id:
+        type: "string"
+      Token:
+        type: "string"
+      Waznosc:
+        type: "string"
+        format: "date-time"
+  Administrator:
+    required:
+    - "Prawa"
+    properties:
+      Prawa:
+        type: "array"
+  Tag:
+    required:
+    - "Id"
+    - "Tekst"
+    properties:
+      Id:
+        type: "integer"
+      Tekst:
+        type: "string"
+  Komentarz:
+    required:
+    - "Data"
+    - "Id"
+    - "Tresc"
+    properties:
+      Id:
+        type: "integer"
+      Tresc:
+        type: "string"
+      Data:
+        type: "string"
+        format: "date-time"
+  Galeria:
+    required:
+    - "Data"
+    - "Id"
+    - "Opis"
+    - "Tytul"
+    - "Widocznosc"
+    properties:
+      Id:
+        type: "integer"
+      Tytul:
+        type: "string"
+      Opis:
+        type: "string"
+      Data:
+        type: "string"
+        format: "date-time"
+      Widocznosc:
+        type: "string"
+  Obraz:
+    required:
+    - "Data"
+    - "Id"
+    - "Nazwa_pliku"
+    - "Opis"
+    - "Rozmiar"
+    - "Sciezka"
+    - "Tytul"
+    properties:
+      Id:
+        type: "integer"
+      Tytul:
+        type: "string"
+      Opis:
+        type: "string"
+      Data:
+        type: "string"
+        format: "date-time"
+      Nazwa_pliku:
+        type: "string"
+      Sciezka:
+        type: "string"
+      Rozmiar:
+        type: "integer"
+  Miniatura:
+    required:
+    - "Typ"
+    properties:
+      Typ:
+        type: "integer"

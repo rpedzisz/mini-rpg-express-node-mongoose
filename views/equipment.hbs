@@ -1,0 +1,165 @@
+<h1> Wyposażenie postaci </h1>
+
+<table style = "margin:auto;">
+<tr>
+<td></td>
+
+{{#if ekwipunek.helm }}
+<td><img src="{{ekwipunek.helm.itembase.obrazek}}" title="{{ekwipunek.helm.nazwa}}" width="100px" height="100px">
+<form action = '../character/equipment/zdejmij' method ='post'>
+<input type="hidden" name="do_zdjecia" value="{{ekwipunek.helm._id}}">
+<input type = 'submit' value = 'Zdejmij'></form>
+</td>
+
+
+
+
+{{else}}
+<td><img src="/images/sloty/helm.png" alt="" width="100px" height="100px"></td>
+{{/if}}
+
+<td>
+
+
+</td>
+</tr>
+<tr>
+{{#if ekwipunek.rekawice }}
+<td><img src="{{ekwipunek.rekawice.itembase.obrazek}}" title="{{ekwipunek.rekawice.nazwa}}" width="100px" height="100px">
+<form action = '../character/equipment/zdejmij' method ='post'>
+<input type="hidden" name="do_zdjecia" value="{{ekwipunek.rekawice._id}}">
+<input type = 'submit' value = 'Zdejmij'></form>
+</td>
+{{else}}
+<td><img src="/images/sloty/rekawice.png" alt="" width="100px" height="100px"></td>
+{{/if}}
+
+
+
+{{#if ekwipunek.amulet }}
+<td><img src="{{ekwipunek.amulet.itembase.obrazek}}" title="{{ekwipunek.amulet.nazwa}}" width="100px" height="100px">
+<form action = '../character/equipment/zdejmij' method ='post'>
+<input type="hidden" name="do_zdjecia" value="{{ekwipunek.amulet._id}}">
+<input type = 'submit' value = 'Zdejmij'></form>
+</td>
+{{else}}
+<td><img src="/images/sloty/amulet.png" alt="" width="100px" height="100px"></td>
+{{/if}}
+
+<td></td>
+</tr>
+<tr>
+
+{{#if ekwipunek.bron }}
+<td><img src="{{ekwipunek.bron.itembase.obrazek}}" title="{{ekwipunek.bron.nazwa}}" width="100px" height="100px">
+<form action = '../character/equipment/zdejmij' method ='post'>
+<input type="hidden" name="do_zdjecia" value="{{ekwipunek.bron._id}}">
+<input type="hidden" name="which" value="main">
+<input type = 'submit' value = 'Zdejmij'></form>
+</td>
+
+</form>
+
+{{else}}
+<td><img src="/images/sloty/bron1.png" alt="" width="100px" height="100px"></td>
+{{/if}}
+
+{{#if ekwipunek.zbroja }}
+<td><img src="{{ekwipunek.zbroja.itembase.obrazek}}" title="{{ekwipunek.zbroja.nazwa}}" width="100px" height="100px">
+<form action = '../character/equipment/zdejmij' method ='post'>
+<input type="hidden" name="do_zdjecia" value="{{ekwipunek.zbroja._id}}">
+<input type = 'submit' value = 'Zdejmij'></form>
+</td>
+{{else}}
+<td><img src="/images/sloty/zbroja.png" alt="" width="100px" height="100px"></td>
+{{/if}}
+
+{{#if ekwipunek.tarcza }}
+<td><img src="{{ekwipunek.tarcza.itembase.obrazek}}" title="{{ekwipunek.tarcza.nazwa}}" width="100px" height="100px">
+<form action = '../character/equipment/zdejmij' method ='post'>
+<input type="hidden" name="do_zdjecia" value="{{ekwipunek.tarcza._id}}">
+<input type="hidden" name="which" value="off">
+<input type = 'submit' value = 'Zdejmij'></form>
+</td>
+{{else}}
+<td><img src="/images/sloty/bron2.png" alt="" width="100px" height="100px"></td>
+{{/if}}
+
+</tr>
+<tr>
+
+{{#if ekwipunek.pierscien_1 }}
+<td><img src="{{ekwipunek.pierscien_1.itembase.obrazek}}" title="{{ekwipunek.pierscien_1.nazwa}}" width="100px" height="100px">
+<form action = '../character/equipment/zdejmij' method ='post'>
+<input type="hidden" name="do_zdjecia" value="{{ekwipunek.pierscien_1._id}}">
+<input type="hidden" name="which" value="lewy">
+<input type = 'submit' value = 'Zdejmij'></form>
+</td>
+{{else}}
+<td><img src="/images/sloty/pierscien_l.png" alt="" width="100px" height="100px"></td>
+{{/if}}
+
+
+
+{{#if ekwipunek.nogawice }}
+<td><img src="{{ekwipunek.nogawice.itembase.obrazek}}" title="{{ekwipunek.nogawice.nazwa}}" width="100px" height="100px">
+<form action = '../character/equipment/zdejmij' method ='post'>
+<input type="hidden" name="do_zdjecia" value="{{ekwipunek.nogawice._id}}">
+<input type = 'submit' value = 'Zdejmij'></form>
+</td>
+{{else}}
+<td><img src="/images/sloty/nogawice.png" alt="" width="100px" height="100px"></td>
+{{/if}}
+
+
+{{#if ekwipunek.pierscien_2 }}
+<td><img src="{{ekwipunek.pierscien_2.itembase.obrazek}}" title="{{ekwipunek.pierscien_2.nazwa}}" width="100px" height="100px">
+<form action = '../character/equipment/zdejmij' method ='post'>
+<input type="hidden" name="do_zdjecia" value="{{ekwipunek.pierscien_2._id}}">
+<input type="hidden" name="which" value="prawy">
+<input type = 'submit' value = 'Zdejmij'></form>
+</td>
+{{else}}
+<td><img src="/images/sloty/pierscien_p.png" alt="" width="100px" height="100px"></td>
+{{/if}}
+</tr>
+<tr>
+<td></td>
+
+
+{{#if ekwipunek.buty }}
+<td><img src="{{ekwipunek.buty.itembase.obrazek}}" title="{{ekwipunek.buty.nazwa}}" width="100px" height="100px">
+<form action = '../character/equipment/zdejmij' method ='post'>
+<input type="hidden" name="do_zdjecia" value="{{ekwipunek.buty._id}}">
+<input type = 'submit' value = 'Zdejmij'></form>
+</td>
+{{else}}
+<td><img src="/images/sloty/buty.png" alt="" width="100px" height="100px"></td>
+{{/if}}
+
+
+<td></td>
+</tr>
+
+
+
+
+
+
+</table>
+
+
+
+    
+<tr>
+
+</tr>
+
+
+
+
+
+
+
+
+

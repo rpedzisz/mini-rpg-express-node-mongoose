@@ -1,0 +1,127 @@
+<h1> Sprzedaj </h1>
+{{#if success_msg}}
+{{success_msg}}
+{{/if}}
+{{#if error_msg}}
+{{error_msg}}
+{{/if}}
+
+<table>
+    <tr>
+        <td>
+<form action = '/city/sell' method ='post'>
+    <input type="hidden" name="typ" value="Wszystko">
+    <input type = 'submit' value = 'Wszystko'>
+</form>
+</td>
+<td>
+<form action = '/city/sell/bron' method ='post'>
+    <input type="hidden" name="typ" value="Broń">
+    <input type = 'submit' value = 'Broń'>
+</form>
+</td>
+<td>
+<form action = '/city/sell/tarcza' method ='post'>
+    <input type="hidden" name="typ" value="Tarcza">
+    <input type = 'submit' value = 'Tarcze'>
+</form>
+</td>
+<td>
+<form action = '/city/sell/helm' method ='post'>
+    <input type="hidden" name="typ" value="Hełm">
+    <input type = 'submit' value = 'Hełmy'>
+</form>
+</td>
+<td>
+<form action = '/city/sell/zbroja' method ='post'>
+    <input type="hidden" name="typ" value="Zbroja">
+    <input type = 'submit' value = 'Zbroje'>
+</form>
+</td>
+
+<td>
+<form action = '/city/sell/rekawice' method ='post'>
+    <input type="hidden" name="typ" value="Rękawice">
+    <input type = 'submit' value = 'Rękawice'>
+</form>
+</td>
+
+<td>
+<form action = '/city/sell/nogawice' method ='post'>
+    <input type="hidden" name="typ" value="Nogawice">
+    <input type = 'submit' value = 'Nogawice'>
+</form>
+</td>
+<td>
+<form action = '/city/sell/buty' method ='post'>
+    <input type="hidden" name="typ" value="Buty">
+    <input type = 'submit' value = 'Buty'>
+</form>
+</td>
+<td>
+<form action = '/city/sell/amulet' method ='post'>
+    <input type="hidden" name="typ" value="Amulet">
+    <input type = 'submit' value = 'Amulety'>
+</form>
+</td>
+<td>
+<form action = '/city/sell/pierscien' method ='post'>
+    <input type="hidden" name="typ" value="Pierścień">
+    <input type = 'submit' value = 'Pierścienie'>
+</form>
+</td>
+</tr>
+</table>
+
+    {{#if przedmioty}}
+    <table>
+{{# each przedmioty}}
+<tr>
+    <th>Nazwa</th>
+    <th>Obrazek</th>
+    <th>Typ</th>
+    <th>Atak</th>
+    <th>Obrona</th>
+    <th>Obrażenia</th>
+    <th>Pancerz</th>
+    <th>Siła</th>
+    <th>Zręczność</th>
+    <th>Wytrzymałość</th>
+    <th>Wartość</th>
+</tr>
+
+<tr>
+    <td>{{this.nazwa}}</td>  
+    <td><img src="{{this.itembase.obrazek}}" title="{{this.nazwa}}" width="100px" height="100px"></td>
+    <td>{{this.typ}}</td> 
+     <td>{{this.atak_m}}</td>
+     <td>{{this.obrona_m}}</td>
+
+    <td>{{this.obrazenia_min_m}} - {{this.obrazenia_max_m}}</td>
+
+     <td>{{this.pancerz_m}}</td>
+     <td>{{this.sila_add_m}}</td>
+     <td>{{this.zrecznosc_add_m}}</td>
+     <td>{{this.wytrzymalosc_add_m}}</td>
+     <td>{{this.wartosc}}</td>
+
+
+     <td>
+
+<form action = '/city/sellitem' method ='post'>
+    <input type="hidden" name="do_sprzedazy" value="{{this._id}}">
+    <input type = 'submit' value = 'Sprzedaj'>
+    </form>
+
+
+</td>
+</tr>
+
+
+
+{{/each}}
+</table>
+{{else}}
+<h1>Brak przedmiotów</h1>
+{{/if}}
+

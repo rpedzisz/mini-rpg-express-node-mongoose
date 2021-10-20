@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="/css/style.css">
+<meta charset="UTF-8">
+<title> {{ title }}</title>
+
+</head>
+
+<body style="background-color: black;">
+<div class="header">
+  <h1> Mini "RPG"</h1>
+  
+</div>
+
+<div class="row">
+  <div class="column left">
+    
+{{#if user}}
+<p> <a href="/users/logout">Wyloguj</a></p>
+
+<h2>{{user.username}}</h2> <br>
+<img src="{{user.obrazek}}" alt="" title="" width="150px" height="150px">
+<img src="{{user.rasa.obrazek}}" alt="{{user.rasa.nazwa}}" title="{{user.rasa.nazwa}}" width="100px" height="100px">
+<img src="{{user.klasa.obrazek}}" alt="{{user.klasa.nazwa}}" title="{{user.klasa.nazwa}}" width="100px" height="100px"><br>
+<h4> Poziom: {{user.poziom}} </h4><br>
+<h4> Doświadczenie: {{user.doswiadczenie}} 
+{{#if next_lvl}}
+/ {{next_lvl}} 
+{{/if}}
+</h4>
+<br>
+<h4 style="color:rgb(143, 27, 7);"> Życie: {{user.zycie_curr}}/{{user.zycie_m}} </h4><br>
+<h4 style="color:rgb(255, 243, 71);"> Złoto: {{user.zloto}} </h4><br>
+<h4 style="color:rgb(55, 236, 70);"> Energia: {{user.energia}} </h4><br>
+{{else}}
+<h2>Niezalogowany</h2>
+{{/if}}
+    
+    
+
+
+  </div>
+  
+  <div class="column middle">
+    
+  {{{ body }}}
+  </div>
+  
+  <div class="column right">
+    <h3>Główne</h3>
+    <p> <a href="/">Strona Główna</a>  </p>
+    <p> <a href="/users/register">Rejestracja</a>  </p>
+    <p> <a href="/users/login">Logowanie</a> </p>
+  <p> <a href="/users/konto">Ustawienia konta</a> </p>
+
+    <h3>Postać</h3>
+    <p> <a href="/character/stats">Statystyki Postaci</a> </p>
+    <p> <a href="/character/equipment">Wyposażenie</a> </p>
+    <p> <a href="/character/inventory">Ekwipunek</a> </p>
+    <p> <a href="/character/leczenie">Leczenie</a> </p>
+    <h3>Walka</h3>
+    <p> <a href="/fight/monster">Potwory</a> </p>
+    <p> <a href="/fight/player">Gracze</a> </p>
+
+    <h3>Miasto</h3>
+    <p> <a href="/city/buy">Kup przedmioty</a> </p>
+    <p> <a href="/city/sell">Sprzedaj przedmioty</a> </p>
+    <p> <a href="/city/forge">Kuźnia</a> </p>
+
+    
+
+  </div>
+</div>
+
+
+
+
+
+
+</body>
+
+
+
+
+
+
+</html>

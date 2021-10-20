@@ -1,0 +1,51 @@
+<h1> Gracze </h1>
+
+{{#if success_msg}}
+{{success_msg}}
+{{/if}}
+{{#if error_msg}}
+{{error_msg}}
+{{/if}}
+
+<table>
+<tr>
+        <th></th>
+        <th>Nazwa</th>
+        <th>Poziom</th>
+        <th>Atak</th>
+        <th>Obrona</th>
+        <th>Obrażenia</th>
+        <th>Pancerz</th>
+        <th>Życie</th>
+</tr>
+
+
+{{# each gracze}}
+
+<tr>
+    <td><img src="{{this.obrazek}}" title="{{this.username}}" width="100px" height="100px"></td>
+    <td>{{this.username}}</td>
+    <td>{{this.poziom}}</td>
+    <td>{{this.atak_m}}</td>
+    <td>{{this.obrona_m}}</td>
+    <td>{{this.obrazenia_min_m}} - {{this.obrazenia_max_m}}</td>
+    <td>{{this.pancerz_m}}</td>
+    <td>{{this.zycie_curr}}/{{this.zycie_m}}</td>
+    <td>
+    <form action = '../fight/player/vs' method ='post'>
+    <input type="hidden" name="atak" value="{{this._id}}">
+        <input type = 'submit' value = 'Atakuj'>
+        </td>
+</form>
+
+</tr>
+
+
+
+
+
+
+
+
+{{/each}}
+</table>

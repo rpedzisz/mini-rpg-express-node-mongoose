@@ -1,0 +1,52 @@
+<h1> Potwory </h1>
+
+
+{{#if success_msg}}
+{{success_msg}}
+{{/if}}
+{{#if error_msg}}
+{{error_msg}}
+{{/if}}
+
+<table>
+<tr>
+        <th></th>
+        <th>Nazwa</th>
+        <th>Poziom</th>
+        <th>Atak</th>
+        <th>Obrona</th>
+        <th>Obrażenia</th>
+        <th>Pancerz</th>
+        <th>Życie</th>
+</tr>
+
+
+{{# each potwory}}
+
+<tr>
+    <td><img src="{{this.obrazek}}" title="{{this.nazwa}}" width="100px" height="100px"></td>
+    <td>{{this.nazwa}}</td>
+    <td>{{this.poziom}}</td>
+    <td>{{this.atak}}</td>
+    <td>{{this.obrona}}</td>
+    <td>{{this.obrazenia_min}} - {{this.obrazenia_max}}</td>
+    <td>{{this.pancerz}}</td>
+    <td>{{this.zycie}}</td>
+    <td>
+    <form action = '../fight/monster/vs' method ='post'>
+    <input type="hidden" name="atak" value="{{this._id}}">
+        <input type = 'submit' value = 'Atakuj'>
+        </td>
+</form>
+
+</tr>
+
+
+
+
+
+
+
+
+{{/each}}
+</table>

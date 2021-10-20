@@ -1,0 +1,63 @@
+<h1> Ulepszanie przedmiotów </h1>
+
+{{#if czyulepszon}}
+{{czyulepszon}}
+{{/if}}
+
+
+<form action = '/city/forge' method ='post'>
+<select name="wybierz_przedmiot" id="wybierz_przedmiot">
+{{# each przedmioty}}
+    <option value="{{this._id}}">{{this.nazwa}}</option>
+    {{/each}}
+  </select>
+<input type = 'submit' value = 'Wybierz'>
+  </form>
+
+ {{#if wybrany_przedmiot}}
+<h1> Wybrano przedmiot</h1>
+
+    <table>
+<tr>
+    <th>Nazwa</th>
+    <th>Obrazek</th>
+    <th>Rzadkość</th>
+    <th>Typ</th>
+    
+    <th>Atak</th>
+    <th>Obrona</th>
+    <th>Obrażenia</th>
+    <th>Pancerz</th>
+    <th>Siła</th>
+    <th>Zręczność</th>
+    <th>Wytrzymałość</th>
+</tr>
+<tr>
+<td>{{wybrany_przedmiot.nazwa}}</td>  
+    <td><img src="{{wybrany_przedmiot.itembase.obrazek}}" title="{{wybrany_przedmiot.nazwa}}" width="100px" height="100px"></td>
+<td><b>{{wybrany_przedmiot.rzadkosc.nazwa}}</b></td> 
+    <td>{{wybrany_przedmiot.typ}}</td> 
+     <td>{{wybrany_przedmiot.atak_m}}</td>
+     <td>{{wybrany_przedmiot.obrona_m}}</td>
+
+    <td>{{wybrany_przedmiot.obrazenia_min_m}} - {{wybrany_przedmiot.obrazenia_max_m}}</td>
+
+     <td>{{wybrany_przedmiot.pancerz_m}}</td>
+     <td>{{wybrany_przedmiot.sila_add_m}}</td>
+     <td>{{wybrany_przedmiot.zrecznosc_add_m}}</td>
+     <td>{{wybrany_przedmiot.wytrzymalosc_add_m}}</td>
+
+</tr>
+</table>
+<p style="margin: auto;">{{info}}</p>
+<form action = '/city/forge/ulepsz' method ='post'>
+    <input type="hidden" name="przedmiot" value="{{wybrany_przedmiot._id}}">
+
+    <input type = 'submit' value = 'Ulepsz'>
+</form>
+
+
+ {{/if}}
+    
+    
+    

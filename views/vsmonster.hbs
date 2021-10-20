@@ -1,0 +1,94 @@
+<table style = "margin:auto;">
+
+<tr>
+
+<td>
+
+<h2>{{user.username}}</h2>
+<img src="{{user.obrazek}}" alt="{{user.username}}" title="{{user.username}}" width="150px" height="150px">
+
+<h4>Atak: {{user.atak_m}}</h4>
+<h4>Obrona: {{user.obrona_m}}</h4>
+<h4>Obrażenia: {{user.obrazenia_min_m}} - {{user.obrazenia_max_m}}</h4>
+<h4>Pancerz: {{user.pancerz_m}}</h4>
+<h4>Zycie: {{zycie_pocz}}/{{user.zycie_m}}</h4>
+<h4>Szansa trafienia: {{hit_chance_left}}%</h4>
+</td>
+<td><h1 style = "margin-left: 200px; margin-right: 200px">VS</h1></td>
+
+<td>
+   <h2>{{monster.nazwa}}</h2> 
+   <img src="{{monster.obrazek}}" alt="{{monster.nazwa}}" title="{{monster.nazwa}}" width="150px" height="150px">
+<h4>Atak: {{monster.atak}}</h4>
+<h4>Obrona: {{monster.obrona}}</h4>
+<h4>Obrażenia: {{monster.obrazenia_min}} - {{monster.obrazenia_max}}</h4>
+<h4>Pancerz: {{monster.pancerz}}</h4>
+<h4>Zycie: {{monster.zycie}}/{{monster.zycie}}</h4>
+<h4>Szansa trafienia: {{hit_chance_right}}%</h4>
+</td>
+
+
+</tr>
+
+</table>
+<h2 style = "margin:auto;">Przebieg walki</h2>
+<table style = "margin:auto;">
+    <tr>
+        <th style = "padding-left:10px;padding-right:10px;">Życie</th>
+        <th>Obrażenia</th>
+        <th>Tura</th>
+        <th>Obrażenia</th>
+        <th>Życie</th>
+    </tr>
+
+{{#each walka_base}}
+<tr>
+<td class="walka"> <b>{{this.zycie_left}} </b></td>
+<td class="walka">-</td>
+<td class="walka">{{this.tura}}</td>
+<td class="walka">-</td>
+<td class="walka"> <b>{{this.zycie_right}}</b> </td>
+</tr>
+{{/each}}
+
+    {{#each walka}}
+<tr>
+<td class="walka"> {{this.zycie_left}} </td>
+
+{{#if this.trafienie_left}}
+<td class="walka"> {{this.obrazenia_left}} </td>
+{{else}}
+<td class="walka"> Pudło </td>
+{{/if}}
+
+
+<td class="walka"> {{this.tura}} </td>
+
+{{#if this.trafienie_right}}
+<td class="walka"> {{this.obrazenia_right}} </td>
+{{else}}
+<td class="walka"> Pudło </td>
+{{/if}}
+
+
+
+
+<td class="walka"> {{this.zycie_right}} </td>
+
+</tr>
+
+    {{/each}}
+    
+
+</table>
+{{#if wynik}}
+        <p style = "margin: auto;">{{wynik}}</p>
+    {{/if}}
+    <br>
+{{#if wynik1}}
+        <p style = "margin: auto;">{{wynik1}}</p>
+    {{/if}}
+{{#if drop}}
+        <p style = "margin: auto;">{{drop}}</p>
+    {{/if}}
+

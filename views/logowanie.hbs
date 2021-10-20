@@ -1,0 +1,22 @@
+<h1> Logowanie </h1>
+{{#if user}}
+<h3 style ="margin: auto;"> Jesteś już zalogowany </h3>
+{{else}}
+<form action="/users/login" method="POST">
+<div>
+
+    <label for="username">Nazwa użytkownika</label>
+    <input type="text" name="username" />
+
+</div>
+<div>
+    <label for="password">Hasło</label>
+    <input  type="password" name="password" />
+  
+</div>
+<input type = 'submit' value = 'Zaloguj się'>
+</form>
+
+
+
+{{/if}}

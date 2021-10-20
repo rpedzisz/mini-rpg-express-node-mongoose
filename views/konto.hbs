@@ -1,0 +1,39 @@
+
+{{#if success_msg}}
+{{success_msg}}
+{{/if}}
+{{#if error_msg}}
+{{error_msg}}
+{{/if}}
+
+<h1>Zmień hasło:</h1>
+<form action = '/users/konto/haslo' method ='post'>
+<table>
+    <tr>
+        <td><label for = 'password1'> Nowe hasło</label></td>
+        <td><input type = 'password' id = 'password1' name = 'password1' placeholder="nowe hasło"><br></td>
+    </tr>
+
+    <tr>
+        <td><label for = 'password2'> Powtórz hasło</label></td>
+        <td><input type = 'password' id = 'password2' name = 'password2' placeholder="powtórz hasło"></td>
+    </tr>
+
+</table>
+<input type="submit" value="Zmień hasło" />
+</form>
+
+
+
+
+
+<h1>Zmień obrazek profilowy:</h1>
+<form method="post" action="/users/konto/obrazek" enctype="multipart/form-data">
+    <div>
+        <label>Wybierz obrazek profilowy:</label>
+        <input type="file" name="profile_pic" />
+    </div>
+    <div>
+        <input type="submit" name="btn_upload_profile_pic" value="Wyślij" />
+    </div>
+</form>
